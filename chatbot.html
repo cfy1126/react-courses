@@ -139,6 +139,7 @@
               id: crypto.randomUUID(),
             },
           ]);
+          console.log('重新渲染前！！！');
           const response = await Chatbot.getResponseAsync(inputText);
           setChatMessages([
             ...newChatMessages,
@@ -149,6 +150,7 @@
             },
           ]);
           setIsLoading(false);
+          console.log('重新渲染后');
         }
         return (
           <div className="chat-input-container">
