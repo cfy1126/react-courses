@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Chatbot } from 'supersimpledev';
+import dayjs from 'dayjs';
 import './ChatInput.css';
 
 export function ChatInput({ chatMessages, setChatMessages }) {
@@ -22,6 +23,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
         message: inputText,
         sender: 'user',
         id: crypto.randomUUID(),
+        time: dayjs().valueOf(),
       },
     ];
     setChatMessages([
@@ -37,7 +39,6 @@ export function ChatInput({ chatMessages, setChatMessages }) {
         id: crypto.randomUUID(),
       },
     ]);
-    console.log('重新渲染前！！！');
     const response = await Chatbot.getResponseAsync(inputText);
     setChatMessages([
       ...newChatMessages,
@@ -45,10 +46,10 @@ export function ChatInput({ chatMessages, setChatMessages }) {
         message: response,
         sender: 'robot',
         id: crypto.randomUUID(),
+        time: dayjs().valueOf(),
       },
     ]);
     setIsLoading(false);
-    console.log('重新渲染后');
   }
   return (
     <div className="chat-input-container">
