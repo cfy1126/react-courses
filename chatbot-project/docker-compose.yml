@@ -1,0 +1,15 @@
+version: '3.8' # 定义 Docker Compose 文件的版本
+
+services:
+  app:
+    image: chatbot-project:develop # 使用你已经构建的镜像
+    build:
+      context: . # 上下文路径
+      dockerfile: Dockerfile # Dockerfile 的文件名
+    ports:
+      - "5173:5173" # 将容器的 5173 端口映射到宿主机
+    volumes:
+      - ./src:/usr/src/app/src # 挂载本地 src 目录到容器
+    command: ["npm", "run", "dev"] # 容器启动时运行的命令
+    environment:
+      - NODE_ENV=development # 环境变量配置

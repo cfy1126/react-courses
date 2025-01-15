@@ -73,7 +73,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
         Send
       </button>
       <button onClick={clearMessage} className="clear-button">
-        clear
+        clearrrr
       </button>
 
     </div>
