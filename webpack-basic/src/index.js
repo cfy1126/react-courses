@@ -1,3 +1,4 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import UserProfileImage from './assets/user.png';
 import './index.css';
